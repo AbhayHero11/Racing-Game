@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfudb22jh7s2e"
+path="res://.godot/imported/lambo_right_wheel.mtl.obj-c7979d77e4b7aecb9d2a0e1e2922366e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lambo_right_wheel.mtl.obj-c7979d77e4b7aecb9d2a0e1e2922366e.mesh"]
+
+source_file="res://assets/cars/lambo_right_wheel.mtl.obj"
+dest_files=["res://.godot/imported/lambo_right_wheel.mtl.obj-c7979d77e4b7aecb9d2a0e1e2922366e.mesh", "res://.godot/imported/lambo_right_wheel.mtl.obj-c7979d77e4b7aecb9d2a0e1e2922366e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

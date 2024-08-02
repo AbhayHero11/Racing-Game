@@ -1,0 +1,12 @@
+# Blender 4.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl _Lamborghini_AventadorLamborghini_Aventador_BodySG
+Ns 18.000004
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/Users/versa/Downloads/CAR Model/Lamborginhi Aventador_diffuse.jpeg
+map_Ks C:/Users/versa/Downloads/CAR Model/Lamborginhi Aventador_spec.jpeg
