@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://coilnxsrp0ddc"]
+
+[ext_resource type="Script" path="res://scripts/CarBody.gd" id="1_14cxu"]
+[ext_resource type="ArrayMesh" uid="uid://b6d4gfx8sr08h" path="res://assets/cars/orange_race_car.obj" id="2_fu5yg"]
+[ext_resource type="ArrayMesh" uid="uid://c5g6pkjl8gvj0" path="res://assets/cars/front_left_wheel.obj" id="3_iwkpe"]
+[ext_resource type="ArrayMesh" uid="uid://w3jvpqtxomf6" path="res://assets/cars/front_right_wheel.obj" id="4_opalv"]
+
+[sub_resource type="GDScript" id="GDScript_hicnk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3isn"]
+albedo_color = Color(0.774102, 0.315068, 0.0990637, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6qo4m"]
+points = PackedVector3Array(-0.583269, 0.1, -0.420448, 0.557893, 0.526542, 0.202872, -0.457689, 0.282863, 1.29996, -0.376438, 0.648449, -1.29996, 0.344121, 0.129766, -1.25967, 0.449162, 0.1, 1.22349, 0.354826, 0.648449, -1.29996, 0.0627778, 0.727907, -0.213611, -0.579628, 0.526542, 0.202872, 0.6, 0.101218, -0.418873, 0.476642, 0.282863, 1.29996, -0.35, 0.103344, -1.1732, -0.430209, 0.1, 1.22349, 0.334511, 0.1, -1.1854, -0.579628, 0.526542, 0.0404727, -0.35, 0.141196, -1.2109, 0.557893, 0.526542, 0.0404727, -0.376438, 0.648449, -1.09683, 0.354826, 0.648449, -1.09683, 0.575938, 0.224062, -0.401805)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svf14"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4scvf"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1pj6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1sg0"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="OrangeCar" type="Node3D"]
+script = SubResource("GDScript_hicnk")
+
+[node name="CarBody" type="VehicleBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mass = 600.0
+script = ExtResource("1_14cxu")
+
+[node name="CarMesh" type="MeshInstance3D" parent="CarBody"]
+material_override = SubResource("StandardMaterial3D_g3isn")
+mesh = ExtResource("2_fu5yg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CarBody"]
+shape = SubResource("ConvexPolygonShape3D_6qo4m")
+
+[node name="FrontLeftWheel" type="VehicleWheel3D" parent="CarBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 0.3, 0.64)
+use_as_steering = true
+wheel_radius = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CarBody/FrontLeftWheel"]
+material_override = SubResource("StandardMaterial3D_svf14")
+mesh = ExtResource("3_iwkpe")
+
+[node name="FrontRightWheel" type="VehicleWheel3D" parent="CarBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48, 0.3, 0.64)
+use_as_steering = true
+wheel_radius = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CarBody/FrontRightWheel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0, 0)
+material_override = SubResource("StandardMaterial3D_4scvf")
+mesh = ExtResource("4_opalv")
+
+[node name="BackLeftWheel" type="VehicleWheel3D" parent="CarBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, 0.3, -0.98)
+use_as_traction = true
+wheel_radius = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CarBody/BackLeftWheel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.005)
+material_override = SubResource("StandardMaterial3D_q1pj6")
+mesh = ExtResource("3_iwkpe")
+
+[node name="BackRightWheel" type="VehicleWheel3D" parent="CarBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51, 0.3, -0.98)
+use_as_traction = true
+wheel_radius = 0.3
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CarBody/BackRightWheel"]
+material_override = SubResource("StandardMaterial3D_k1sg0")
+mesh = ExtResource("4_opalv")
+
+[node name="Camera3D" type="Camera3D" parent="CarBody"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, -2.6)
